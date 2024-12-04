@@ -27,6 +27,10 @@ class Animal:
         else:
             print("Be careful, i'm attacking you 0_0")
 
+    def speak(self):
+
+        print(self.sound)
+
 
 class Bird(Animal):
     beak = True
@@ -40,8 +44,8 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
 
     def dive_in(self, dz):
-        new_z = self._cords[2] - abs(dz) * .5 * self.speed
-        self._cords[2] = max(new_z, 0)
+        new_z = self._cords[2] - abs(dz) * self.speed / 2
+        self._cords[2] = new_z
 
 
 class PoisonousAnimal(Animal):
@@ -49,13 +53,9 @@ class PoisonousAnimal(Animal):
 
 
 class Duckbill(PoisonousAnimal, Bird, AquaticAnimal):
-    sound = "Click-click-click"  
+    sound = "Click-click-click"
 
-    def __init__(self, speed):
-        super().__init__(speed)
 
-    def speak(self):
-        print(self.sound)
 
 
 db = Duckbill(10)
