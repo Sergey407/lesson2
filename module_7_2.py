@@ -1,4 +1,3 @@
-
 info = [
     'Text for tell.',
     'Используйте кодировку utf-8.',
@@ -10,7 +9,7 @@ def custom_write(file_name, strings):
     n = 0
     elem = {}
     for i in info:
-        file = open(file_name, 'a', encoding='utf-8')  # файл в режиме записи
+        file = open(file_name, 'a', encoding='utf-8')
         tell = (file.tell())
         n += 1
         file.write(f'{i}\n')
